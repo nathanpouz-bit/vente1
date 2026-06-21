@@ -1,3 +1,5 @@
+from config.columns import REQUIRED_COLUMNS
+
 import pandas as pd
 
 REQUIRED_COLUMNS = [
