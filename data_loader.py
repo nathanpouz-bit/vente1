@@ -1,3 +1,17 @@
+import pandas as pd
+
+def clean_numeric(df, col):
+    df[col] = (
+        df[col]
+        .astype(str)
+        .str.replace(",", "", regex=False)
+        .str.replace("€", "", regex=False)
+        .str.strip()
+    )
+
+    df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+    return df
+    
 from config.columns import REQUIRED_COLUMNS
 
 import pandas as pd
