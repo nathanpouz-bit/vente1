@@ -4,7 +4,7 @@ def compute_kpis(df):
     profit = df["Profit"].sum()
     units = df["Units Sold"].sum()
 
-    margin = (profit / sales * 100) if sales else 0
+margin = (profit / sales * 100) if sales != 0 else 0
 
     return {
         "sales": sales,
