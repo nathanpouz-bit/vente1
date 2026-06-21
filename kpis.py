@@ -1,10 +1,13 @@
 def compute_kpis(df):
 
-    sales = df["Sales"].sum()
-    profit = df["Profit"].sum()
-    units = df["Units Sold"].sum()
+    sales = float(df["Sales"].sum())
+    profit = float(df["Profit"].sum())
+    units = float(df["Units Sold"].sum())
 
-margin = (profit / sales * 100) if sales != 0 else 0
+    if sales == 0:
+        margin = 0
+    else:
+        margin = (profit / sales) * 100
 
     return {
         "sales": sales,
