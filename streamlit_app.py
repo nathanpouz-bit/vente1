@@ -51,8 +51,12 @@ if file:
             use_container_width=True
         )
 
+
     st.plotly_chart(
         line(monthly_trend(df), "Date", "Sales", "Sales Trend")
     )
 
     st.dataframe(df)
+
+if st.checkbox("Voir mapping automatique"):
+    st.json(mapping if "mapping" in locals() else {})
